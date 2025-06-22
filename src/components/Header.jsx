@@ -1,11 +1,26 @@
+import { useContext, useState } from "react";
+import userNameContext from "../utils/userNameContext";
+import Sidebar from "./Sidebar";
 
-const Header=()=>{
+const Header=({setSidebar})=>{
+
+
+    
+
+    function changeSidebar(){
+        setSidebar(preVal=>!preVal);
+        
+    }
+
+    const {userName}=useContext(userNameContext);
+    // console.log(userName);
+
     return(
         <>
-        <div className="flex justify-between"> 
+        <div className="flex justify-between shadow-lg p-3"> 
             <div className="flex">
             <div>
-                <img alt="hamerburge" src="https://www.svgrepo.com/show/489710/burger-menu.svg" className="h-15"></img>
+                <img alt="hamerburge" src="https://www.svgrepo.com/show/489710/burger-menu.svg" className="h-15" onClick={changeSidebar}></img>
                 
             </div>
             <div>
@@ -14,12 +29,13 @@ const Header=()=>{
             </div>
             <div className="mt-4 justify-between">
                 <input className="rounded-2xl border-2 border-gray-400 w-2xl p-1"></input>
-                <img alt="search" src="https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png" className="w-12 absolute top-3  right-95"></img>
+                <img alt="search" src="https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png" className="w-12 absolute top-7  right-99"></img>
             </div>
             <div className="mt-4  mr-3">
-                <h1 className="">mini movie</h1>
+                <h1 className="">Welcome {userName}</h1>
             </div>
         </div>
+        {/* {openSidebar&&<Sidebar></Sidebar>} */}
         </>
     )
 }

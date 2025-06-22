@@ -4,7 +4,7 @@ import Videocontainer from "./Videocontainer";
 const Maincontainer=()=>{
     return(
         <>
-        <h1>Main container</h1>
+        {/* <h1>Main container</h1> */}
         <Buttonlist></Buttonlist>
         <Videocontainer></Videocontainer>
         </>

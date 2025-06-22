@@ -1,7 +1,7 @@
 const Videocard=()=>{
     return (
         <>
-        <h1>videocard</h1>
+        {/* <h1>videocard</h1> */}
         </>
     )
 }

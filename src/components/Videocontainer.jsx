@@ -1,10 +1,12 @@
+import Shimmer from "./Shimmer";
 import Videocard from "./Videocard";
 
 const Videocontainer=()=>{
     return(
         <>
-        <h1>videocontainer</h1>
-        <Videocard></Videocard>
+       <Shimmer></Shimmer>
+
+        {/* <Videocard></Videocard> */}
         </>
     )
 }

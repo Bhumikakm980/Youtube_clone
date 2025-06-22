@@ -4,11 +4,12 @@ import Sidebar from "./Sidebar";
 
 
 
-const Body=()=>{
+const Body=({openSidebar})=>{
     return(
         <>
-        <h1>Body</h1>
-        <Sidebar></Sidebar>
+        {/* <h1>Body</h1> */}
+        {/* <Sidebar></Sidebar> */}
+        {openSidebar&&<Sidebar></Sidebar>}
         <Maincontainer></Maincontainer>
         </>
     )
