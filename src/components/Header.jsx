@@ -1,16 +1,24 @@
 import { useContext, useState } from "react";
 import userNameContext from "../utils/userNameContext";
 import Sidebar from "./Sidebar";
+import { useDispatch } from "react-redux";
+import { showSidebar } from "../utils/sidebarslice";
 
-const Header=({setSidebar})=>{
+
+const Header=()=>{
 
 
     
 
-    function changeSidebar(){
-        setSidebar(preVal=>!preVal);
+    // function changeSidebar(){
+    //     setSidebar(preVal=>!preVal);
         
-    }
+    // }
+
+    const dispatch=useDispatch();
+
+    const handleToffleSidebar=()=>dispatch(showSidebar());
+
 
     const {userName}=useContext(userNameContext);
     // console.log(userName);
@@ -20,7 +28,7 @@ const Header=({setSidebar})=>{
         <div className="flex justify-between shadow-lg p-3"> 
             <div className="flex">
             <div>
-                <img alt="hamerburge" src="https://www.svgrepo.com/show/489710/burger-menu.svg" className="h-15" onClick={changeSidebar}></img>
+                <img alt="hamerburge" src="https://www.svgrepo.com/show/489710/burger-menu.svg" className="h-15 cursor-pointer" onClick={()=>handleToffleSidebar()}></img>
                 
             </div>
             <div>

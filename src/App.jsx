@@ -1,20 +1,30 @@
 /* importing css file*/
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
+import sidebarStore from './utils/sidebarStore';
+import {Provider} from 'react-redux';
+
+
 
 
 function App() {
 
   /*usestate to open sidebar*/
 
-    const[openSidebar,setSidebar]=useState(true);
+    // const[openSidebar,setSidebar]=useState(true);
+
+
   
   return (
     <>
-     <Header setSidebar={setSidebar}></Header>
-     <Body openSidebar={openSidebar}></Body>
+    <Provider store={sidebarStore}>
+     {/* <Header setSidebar={setSidebar}></Header>
+     <Body openSidebar={openSidebar}></Body> */}
+     <Header ></Header>
+     <Body ></Body>
+     </Provider>
     </>
   )
 }
