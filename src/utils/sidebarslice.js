@@ -8,10 +8,13 @@ const sidebarslice= createSlice({
     reducers:{
         showSidebar:(state)=>{
             state.sidebarState=!state.sidebarState;
+        },
+        closeSidebar:(state)=>{
+            state.sidebarState=false;
         }
     }
 });
 
-export const {showSidebar}=sidebarslice.actions
+export const {showSidebar,closeSidebar}=sidebarslice.actions;
 
 export default sidebarslice.reducer;

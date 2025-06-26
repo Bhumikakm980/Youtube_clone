@@ -1,22 +1,23 @@
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import Maincontainer from "./Maincontainer";
 import Sidebar from "./Sidebar";
+import { Outlet } from "react-router-dom";
 
 
 
 
 const Body=()=>{
 
+    /**subscribing to store */
     const showSide=useSelector((store)=>store.app.sidebarState);
-    console.log(showSide);
+   
  
     return(
         <>
-        {/* <h1>Body</h1> */}
         <div className="grid grid-flow-col">
-        {/* <Sidebar></Sidebar> */}
         {showSide&&<Sidebar></Sidebar>}
-        <Maincontainer></Maincontainer>
+        {/* <Maincontainer></Maincontainer> */}
+        <Outlet></Outlet>
         </div>
         </>
     )

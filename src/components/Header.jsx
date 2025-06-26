@@ -23,6 +23,10 @@ const Header=()=>{
     const {userName}=useContext(userNameContext);
     // console.log(userName);
 
+     function searchVideo(e){
+        
+     }
+
     return(
         <>
         <div className="flex justify-between shadow-lg p-3"> 
@@ -36,7 +40,7 @@ const Header=()=>{
             </div>
             </div>
             <div className="mt-4 justify-between">
-                <input className="rounded-2xl border-2 border-gray-400 w-2xl p-1"></input>
+                <input className="rounded-2xl border-2 border-gray-400 w-2xl p-1" onChange={()=>searchVideo(e)}></input>
                 <img alt="search" src="https://endlessicons.com/wp-content/uploads/2015/08/search-icon-2-614x460.png" className="w-12 absolute top-7  right-99"></img>
             </div>
             <div className="mt-4  mr-3">
