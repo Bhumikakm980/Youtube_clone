@@ -31,7 +31,6 @@ const Videodetails=()=>{
     return(
        
   <iframe
-    
     src={"https://www.youtube.com/embed/"+val}
     allow="autoplay; encrypted-media"
     allowFullScreen

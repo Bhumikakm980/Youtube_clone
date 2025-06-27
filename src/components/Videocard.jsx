@@ -23,6 +23,26 @@ const{channelTitle,thumbnails,title}=snippet;
      
         </>
     )
+
+   
 }
+
+ export const RedItem=({videoDetails})=>{
+  if(videoDetails.statistics.likeCount>100000){
+    return (
+        <>
+        <div className="relative">
+          <span className="absolute left-2 text-white">#Trending</span>
+          <Videocard videoDetails={videoDetails}></Videocard>
+          </div>
+          </>
+    )
+  }
+  else{
+    return <Videocard videoDetails={videoDetails}></Videocard>
+  }
+      
+  // return <Videocard></Videocard>
+    }
 
 export default Videocard;

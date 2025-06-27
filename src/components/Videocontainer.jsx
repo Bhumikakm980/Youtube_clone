@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import Videocard from "./Videocard";
+import Videocard, {RedItem} from "./Videocard";
 import { YOUTUBE_VIDEO_API } from "../utils/constants";
 import { Link } from "react-router-dom";
 
@@ -27,10 +27,12 @@ const Videocontainer=()=>{
         
        
         <div className="flex flex-wrap h-full">
-            
+
+        {/* {videoList && <redItem videoDetails={i}/>}     */}
         {videoList.map((i)=>(
             <Link to={"/watch?v="+i.id} key={i.id} className="block w-2/12 ">
-            <Videocard videoDetails={i}  />
+                <RedItem videoDetails={i}/>
+            {/* <Videocard videoDetails={i}  /> */}
             </Link>
             ))}
         
