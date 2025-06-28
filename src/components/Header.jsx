@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import userNameContext from "../utils/userNameContext";
 import Sidebar from "./Sidebar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showSidebar } from "../utils/sidebarslice";
 import { SEARCH_SUGGESTION_API } from "../utils/constants";
 import Searchlist from "./Searchlist";
+import {setCache} from "../utils/cacheslice";
+
 
 
 const Header=()=>{
@@ -22,6 +24,8 @@ const Header=()=>{
     const handleToffleSidebar=()=>dispatch(showSidebar());
 
 
+    
+
     const {userName}=useContext(userNameContext);
     // console.log(userName);
 
@@ -31,11 +35,24 @@ const Header=()=>{
     const[searchpage,setSearchpage]=useState();
     const[isSearch,setIssearch]=useState(false);
 
+    const checkCache=useSelector((store)=>store.cache);
+
     useEffect(()=>{
         // _callSearchSuggestion();
+        
+
         const timer=setTimeout(()=>{
-            _callSearchSuggestion()
-        },100)
+            // console.log(checkCache);
+            const a=(checkCache[serachValue]);
+            // console.log(a);
+            if(checkCache[serachValue]){
+             setSearchpage(checkCache[serachValue]);
+        }
+        else{
+             _callSearchSuggestion();
+        }
+           
+        },2000)
 
         return()=>{
             clearTimeout(timer);
@@ -43,19 +60,24 @@ const Header=()=>{
 
     },[serachValue]);
 
+
+
+  
+
+
     async function _callSearchSuggestion(){
         
         const val=await fetch(SEARCH_SUGGESTION_API+serachValue);
         const mod=await val.json();
-        console.log(mod[1]);
+        // console.log(mod[1]);
         setSearchpage(mod[1]);
-        
-        // if(mod[1].length>0){
-        // setIssearch(true);
-        // }
-        // else if(mod[1].length==0){
-        //     setIssearch(false);
-        // }
+        dispatch(setCache(
+            {
+                [serachValue]:mod[1],
+            }
+        ))
+
+      
     }
 
     

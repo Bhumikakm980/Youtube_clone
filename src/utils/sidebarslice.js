@@ -4,6 +4,7 @@ const sidebarslice= createSlice({
     name:"sidebar",
     initialState:{
         sidebarState:true,
+        
     },
     reducers:{
         showSidebar:(state)=>{
